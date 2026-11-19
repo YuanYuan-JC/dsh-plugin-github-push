@@ -440,6 +440,7 @@ export class GithubPushService {
       }
       const files = changes.staged + changes.unstaged + changes.untracked
       const commitMessage = chooseMessage({ message: options.message, files, branch: branch ?? 'main' })
+      const plannedVisibility = options.visibility ?? this.config.visibility
       const repository = repo === null
         ? null
         : {
@@ -449,7 +450,7 @@ export class GithubPushService {
           nameWithOwner: `${repo.owner}/${repo.name}`,
           webUrl: `https://${this.config.hosts[0]}/${repo.owner}/${repo.name}`,
           exists: repoView !== null,
-          visibility: repoView?.visibility ?? this.config.visibility,
+          visibility: repoView?.visibility ?? plannedVisibility,
           created: false,
         }
       if (!isRepository && !this.config.initRepo) {
@@ -468,7 +469,7 @@ export class GithubPushService {
         throw new PushError('detached-head', 'HEAD is detached; a branch is required.', 'Pass branch to name the branch, or check out a branch first.')
       }
       if (!isRepository) warnings.push('Will initialize a Git repository and make the first commit.')
-      if (repoView === null && remote === null) warnings.push(`Will create the GitHub repository ${repo.owner}/${repo.name} (${this.config.visibility}) and add it as ${this.config.remoteName}.`)
+      if (repoView === null && remote === null) warnings.push(`Will create the GitHub repository ${repo.owner}/${repo.name} (${plannedVisibility}) and add it as ${this.config.remoteName}.`)
       if (repoView === null && remote !== null) warnings.push(`The ${this.config.remoteName} remote exists, but ${repo.owner}/${repo.name} could not be read from GitHub; the push may fail.`)
       if (identity.name === null || identity.email === null) {
         if (this.config.configureIdentity && readiness.user !== null) {
