@@ -234,7 +234,11 @@ export class Github {
     const result = await this.gh(['pr', 'view', branch, '--json', PR_FIELDS], { workdir })
     if (result.code !== 0) return null
     const value = parseJson(result.stdout)
-    return value !== null && typeof value.url === 'string' ? value : null
+    if (value === null || typeof value.url !== 'string') return null
+    // A merged or closed pull request must not be reused for a new push on the
+    // same branch name; only an OPEN request can be updated in place.
+    if (value.state !== 'OPEN') return null
+    return value
   }
 
   /**

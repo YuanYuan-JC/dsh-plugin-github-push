@@ -98,6 +98,17 @@ test('configuration defaults and warnings', () => {
   assert.equal(normalizeConfig({ branchPolicy: 'nope' }).config.branchPolicy, 'feature')
 })
 
+test('prView reuses only open pull requests', async () => {
+  const github = new Github({
+    run: async invocation => invocation.command.includes('pr view')
+      ? { code: 0, stdout: JSON.stringify({ url: 'https://github.com/a/b/pull/1', number: 1, state: 'MERGED', isDraft: false }), stderr: '' }
+      : { code: 1, stdout: '', stderr: 'unexpected' },
+    cwd: '/tmp',
+    config: { ghCommand: 'gh', timeoutMs: 1000 },
+  })
+  assert.equal(await github.prView('feat'), null)
+})
+
 test('feature branch names and check parsing', async () => {
   assert.equal(featureBranchName('推送到 GitHub/Push to GitHub'), 'dsh/推送到-GitHub/Push-to-GitHub')
   assert.equal(featureBranchName('github-push'), 'dsh/github-push')

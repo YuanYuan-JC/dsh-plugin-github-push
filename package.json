@@ -1,6 +1,6 @@
 {
   "name": "dsh-plugin-github-push",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Commit and push the current project to GitHub only when the user asks, then create the repository and pull request and hand it to the change-request panel for tracking.",
   "type": "module",
   "license": "MIT",

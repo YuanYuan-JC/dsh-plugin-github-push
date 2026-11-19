@@ -59,10 +59,18 @@ CI 在 GitHub Actions 中运行同一命令。
 - 宿主安装并登录 `gh`（GitHub CLI）
 - 需要 GitHub 账号；新建仓库默认 private
 
+## 变更记录
+
+见 [CHANGELOG.md](CHANGELOG.md)。
+
+## 安全
+
+漏洞报告与凭据处理说明见 [SECURITY.md](SECURITY.md)。
+
 ## 许可证
 
 [MIT](LICENSE)
 
 ## 状态
 
-0.6.0：推送/跟踪、客户端 UI、分支策略、checks、Git 视图、tag/release 已实现；GitHub Enterprise/GitLab 与插件市场发布未做。
+0.6.1：推送/跟踪、客户端 UI、分支策略、checks、Git 视图、tag/release 已实现；GitHub Enterprise/GitLab 与插件市场发布未做。
