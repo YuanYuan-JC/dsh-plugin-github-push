@@ -59,6 +59,14 @@ CI 在 GitHub Actions 中运行同一命令。
 - 宿主安装并登录 `gh`（GitHub CLI）
 - 需要 GitHub 账号；新建仓库默认 private
 
+## 变更记录
+
+见 [CHANGELOG.md](CHANGELOG.md)。
+
+## 安全
+
+漏洞报告与凭据处理说明见 [SECURITY.md](SECURITY.md)。
+
 ## 许可证
 
 [MIT](LICENSE)
