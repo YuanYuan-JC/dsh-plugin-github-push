@@ -73,4 +73,4 @@ CI 在 GitHub Actions 中运行同一命令。
 
 ## 状态
 
-0.6.0：推送/跟踪、客户端 UI、分支策略、checks、Git 视图、tag/release 已实现；GitHub Enterprise/GitLab 与插件市场发布未做。
+0.6.1：推送/跟踪、客户端 UI、分支策略、checks、Git 视图、tag/release 已实现；GitHub Enterprise/GitLab 与插件市场发布未做。
