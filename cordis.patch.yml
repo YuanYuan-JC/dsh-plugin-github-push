@@ -1,0 +1,5 @@
+# GitHub push bundle: one Host row (tool + slash command + internal service).
+- insert:
+    - id: github-push
+      name: 'dsh-plugin-github-push'
+      config: {}

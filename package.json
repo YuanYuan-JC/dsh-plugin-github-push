@@ -1,0 +1,55 @@
+{
+  "name": "dsh-plugin-github-push",
+  "version": "0.6.0",
+  "description": "Commit and push the current project to GitHub only when the user asks, then create the repository and pull request and hand it to the change-request panel for tracking.",
+  "type": "module",
+  "license": "MIT",
+  "author": "YuanYuan-JC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YuanYuan-JC/dsh-plugin-github-push.git"
+  },
+  "homepage": "https://github.com/YuanYuan-JC/dsh-plugin-github-push#readme",
+  "bugs": {
+    "url": "https://github.com/YuanYuan-JC/dsh-plugin-github-push/issues"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "github",
+    "git",
+    "push",
+    "pull-request"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "src",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "docs",
+    "icon.svg"
+  ],
+  "scripts": {
+    "test": "node --test"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  }
+}

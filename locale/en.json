@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "Push to GitHub",
+    "description": "Commit and push the current project to GitHub only when you ask, create the GitHub repository and pull request when needed, and track the change request in the conversation panel.",
+    "detail": "docs/DETAIL.md"
+  }
+}

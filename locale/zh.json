@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "推送到 GitHub",
+    "description": "只在你发出推送指令时提交并推送当前项目；按需自动创建 GitHub 仓库、建立 PR，并在会话的变更请求面板中跟踪。",
+    "detail": "docs/DETAIL.md"
+  }
+}
